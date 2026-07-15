@@ -23,3 +23,11 @@ def test_anusvaram_assimilation():
 
 def test_retroflex_voicing():
     assert transliterate("ഓടുക") == "Oduka"
+
+
+def test_virama_postprocess_does_not_append_u_after_y():
+    assert transliterate("പൈതലിനായ്") == "Paithalinaay"
+
+
+def test_mekhalayaanu_keeps_the_natural_u_suffix():
+    assert transliterate("മേഖലയാണ്") == "Mekhalayaanu"

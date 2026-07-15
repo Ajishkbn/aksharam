@@ -99,7 +99,8 @@ def _postprocess_manglish(original: str, manglish: str) -> str:
     result = re.sub(r"([aeiou])\1{2,}", r"\1\1", result)
     orig_clean = str(original).replace(_ZWNJ, "").replace(_ZWJ, "").rstrip()
     if orig_clean.endswith(_VIRAMA):
-        result = re.sub(r"([^aeiou\s])$", r"\1u", result)
+        if not result.rstrip().endswith(("y", "Y")):
+            result = re.sub(r"([^aeiou\s])$", r"\1u", result)
     return result
 
 
