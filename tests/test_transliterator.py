@@ -31,3 +31,12 @@ def test_virama_postprocess_does_not_append_u_after_y():
 
 def test_mekhalayaanu_keeps_the_natural_u_suffix():
     assert transliterate("മേഖലയാണ്") == "Mekhalayaanu"
+
+
+def test_word_final_virama_uses_u_suffix_for_consonant_words():
+    assert transliterate("കുരിശ്") == "Kurishu"
+
+
+def test_word_final_virama_keeps_existing_y_suffix_behavior():
+    assert transliterate("പൈതൽ") == "Paithal"
+

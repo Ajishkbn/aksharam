@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aksharam"
-version = "0.1.1"
-description = "Transliterate Malayalam text into English-style Manglish with a small set of fixes on top of ml2en"
+version = "0.2.0"
+description = "Transliterate Malayalam text into English-style Manglish using bundled transliteration tables"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
 authors = [{ name = "Ajish K B" }]
-keywords = ["malayalam", "transliteration", "manglish", "ml2en", "linguistics"]
+keywords = ["malayalam", "transliteration", "manglish", "linguistics"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
@@ -18,7 +18,7 @@ classifiers = [
   "Topic :: Text Processing :: Linguistic",
   "Topic :: Software Development :: Libraries",
 ]
-dependencies = ["ml2en"]
+dependencies = []
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0", "build>=1.2.0", "twine>=5.0.0"]
@@ -36,6 +36,9 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+aksharam = ["data/*.json"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
